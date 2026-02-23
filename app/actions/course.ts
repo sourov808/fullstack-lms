@@ -159,11 +159,26 @@ export async function enrollInCourse(courseId: string) {
 
   if (existing) return { success: true, alreadyEnrolled: true };
 
+  // Fetch course price
+  const { data: course, error: courseError } = await supabase
+    .from("courses")
+    .select("price")
+    .eq("id", courseId)
+    .single();
+
+  if (courseError || !course) {
+    console.error("Failed to fetch course for enrollment:", courseError);
+    throw new Error("Failed to enroll");
+  }
+
   const { error } = await supabase
     .from("purchases")
-    .insert({ user_id: user.id, course_id: courseId });
+    .insert({ user_id: user.id, course_id: courseId, price: course.price ?? 0 });
 
-  if (error) throw new Error("Failed to enroll");
+  if (error) {
+    console.error("Failed to enroll:", error);
+    throw new Error("Failed to enroll");
+  }
 
   revalidatePath(`/courses/${courseId}`);
   revalidatePath("/dashboard");

@@ -1,6 +1,8 @@
 import { getDashboardMetrics } from "@/app/actions/analytics";
+import { AdminDashboardSkeleton } from "@/components/admin/AdminSkeletons";
+import { Suspense } from "react";
 
-export default async function AdminDashboardPage() {
+async function DashboardContent() {
   const metrics = await getDashboardMetrics();
 
   const dataCards = [
@@ -28,5 +30,13 @@ export default async function AdminDashboardPage() {
         ))}
       </div>
     </div>
+  );
+}
+
+export default function AdminDashboardPage() {
+  return (
+    <Suspense fallback={<AdminDashboardSkeleton />}>
+      <DashboardContent />
+    </Suspense>
   );
 }
