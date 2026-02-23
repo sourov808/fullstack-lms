@@ -15,21 +15,22 @@ export default async function AdminLayout({
   }
 
   // Ensure only admins can access
-  // For dev purposes, if role is missing, we might redirect, but we'll enforce 'admin'
   if (user.user_metadata?.role !== "admin") {
-    redirect("/dashboard"); // Redirect non-admins to student dashboard
+    redirect("/unauthorized");
   }
 
   return (
     <div className="flex bg-slate-50 min-h-[calc(100vh-73px)]">
       {/* Sidebar - Fixed to left side */}
-      <aside className="fixed left-0 top-[73px] bottom-0 w-64 hidden md:block">
+      <aside className="fixed left-0 top-[73px] bottom-0 w-64 hidden md:block bg-white border-r border-slate-200 overflow-y-auto">
         <AdminSidebar />
       </aside>
 
       {/* Main Content Area - with margin to account for fixed sidebar */}
-      <main className="flex-1 md:ml-64 p-8">
-        {children}
+      <main className="flex-1 md:ml-64 min-h-[calc(100vh-73px)]">
+        <div className="p-8">
+          {children}
+        </div>
       </main>
     </div>
   );

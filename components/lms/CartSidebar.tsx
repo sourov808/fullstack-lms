@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
-import { useCart } from "@/context/CartContext";
+import React, { useContext } from "react";
+import { CartContext } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
 import { X, ShoppingBag, Trash2 } from "lucide-react";
 import Link from "next/link";
@@ -13,7 +13,14 @@ interface CartSidebarProps {
 }
 
 export function CartSidebar({ isOpen, onClose }: CartSidebarProps) {
-  const { items, removeFromCart, totalPrice, totalItems, clearCart } = useCart();
+  const context = useContext(CartContext);
+  
+  // Don't render if outside of CartProvider
+  if (!context) {
+    return null;
+  }
+
+  const { items, removeFromCart, totalPrice, totalItems, clearCart } = context;
 
   if (!isOpen) return null;
 

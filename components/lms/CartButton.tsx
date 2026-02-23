@@ -1,13 +1,19 @@
 "use client";
 
-import React, { useState } from "react";
-import { useCart } from "@/context/CartContext";
+import React, { useState, useContext } from "react";
+import { CartContext } from "@/context/CartContext";
 import { Button } from "@/components/ui/button";
 import { CartSidebar } from "./CartSidebar";
 
 export function CartButton() {
-  const { totalItems } = useCart();
+  const context = useContext(CartContext);
+  const totalItems = context?.totalItems ?? 0;
   const [isOpen, setIsOpen] = useState(false);
+
+  // Don't render if outside of CartProvider (shouldn't happen, but safety check)
+  if (!context) {
+    return null;
+  }
 
   return (
     <>
