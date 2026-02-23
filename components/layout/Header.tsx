@@ -14,9 +14,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getUser } from "@/lib/supabase/get-user";
 import { LogoutButton } from "@/components/auth/LogoutButton";
 import { CartButton } from "@/components/lms/CartButton";
+import { ThemeToggle } from "./ThemeToggle";
 
 export default async function Header() {
   const user = await getUser();
+  const isAdmin = user?.user_metadata?.role === "admin";
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-slate-100 px-6 py-3 flex items-center justify-between gap-8 h-[73px]">
@@ -43,12 +45,12 @@ export default async function Header() {
           <Link href="/courses" className="hover:text-primary transition-colors">
             All Courses
           </Link>
-          {user && (
+          {!isAdmin && user && (
             <Link href="/dashboard" className="hover:text-primary transition-colors">
               My Learning
             </Link>
           )}
-          {user?.user_metadata?.role === "admin" && (
+          {isAdmin && (
             <Link href="/admin" className="hover:text-primary transition-colors">
               Instructor Dashboard
             </Link>
@@ -72,29 +74,34 @@ export default async function Header() {
                    <DropdownMenuLabel className="font-normal border-b border-slate-100 pb-2 mb-2">
                      <div className="flex flex-col space-y-1">
                        <p className="text-sm font-medium leading-none text-slate-900">
-                         {user.user_metadata?.first_name 
-                           ? `${user.user_metadata?.first_name} ${user.user_metadata?.last_name || ""}` 
-                           : "Student"}
+                         {user.user_metadata?.first_name
+                           ? `${user.user_metadata?.first_name} ${user.user_metadata?.last_name || ""}`
+                           : isAdmin ? "Admin" : "Student"}
                        </p>
                        <p className="text-xs leading-none text-slate-500">
                          {user.email}
                        </p>
                      </div>
                    </DropdownMenuLabel>
+                   
+                   {/* Mobile-only links */}
                    <DropdownMenuItem asChild className="lg:hidden cursor-pointer py-2 text-slate-900 font-bold border-b border-slate-50 mb-1">
                      <Link href="/courses" className="flex items-center">
                        <span className="material-symbols-outlined mr-2 text-[18px]">library_books</span>
                        All Courses
                      </Link>
                    </DropdownMenuItem>
-                   <DropdownMenuItem asChild className="cursor-pointer py-2">
-                     <Link href="/dashboard" className="flex items-center">
-                       <span className="material-symbols-outlined mr-2 text-[18px]">dashboard</span>
-                       My Learning
-                     </Link>
-                   </DropdownMenuItem>
+                   
+                   {!isAdmin && (
+                     <DropdownMenuItem asChild className="cursor-pointer py-2">
+                       <Link href="/dashboard" className="flex items-center">
+                         <span className="material-symbols-outlined mr-2 text-[18px]">dashboard</span>
+                         My Learning
+                       </Link>
+                     </DropdownMenuItem>
+                   )}
 
-                   {user.user_metadata?.role === "admin" && (
+                   {isAdmin && (
                      <DropdownMenuItem asChild className="cursor-pointer py-2">
                        <Link href="/admin" className="flex items-center">
                          <span className="material-symbols-outlined mr-2 text-[18px]">admin_panel_settings</span>
@@ -129,7 +136,7 @@ export default async function Header() {
                 >
                   <Link href="/login">Log in</Link>
                 </Button>
-                <Button 
+                <Button
                   className="px-5 py-2 text-sm font-bold text-white bg-primary hover:bg-opacity-90 rounded-lg shadow-sm shadow-primary/20 transition-all h-auto"
                   asChild
                 >
@@ -172,7 +179,11 @@ export default async function Header() {
             </div>
           )}
 
-          <CartButton />
+          {/* Cart button - only for students */}
+          {!isAdmin && <CartButton />}
+          
+          {/* Theme Toggle - for all users */}
+          <ThemeToggle />
         </div>
       </nav>
     </header>

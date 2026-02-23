@@ -16,7 +16,7 @@ export function AdminDashboardSkeleton() {
         {[...Array(4)].map((_, i) => (
           <div
             key={i}
-            className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm space-y-3"
+            className="p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm space-y-3"
           >
             <Skeleton className="h-4 w-24" />
             <Skeleton className="h-8 w-32" />
@@ -31,7 +31,7 @@ export function AdminDashboardSkeleton() {
           {[...Array(5)].map((_, i) => (
             <div
               key={i}
-              className="p-4 bg-white rounded-xl border border-slate-200 flex items-center gap-4"
+              className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center gap-4"
             >
               <Skeleton className="h-10 w-10 rounded-full" />
               <div className="flex-1 space-y-2">

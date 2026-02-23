@@ -15,15 +15,18 @@ import {
 
 export function DynamicBreadcrumbs() {
   const pathname = usePathname();
-  
+
   // Don't show breadcrumbs on the absolute home page
   if (pathname === "/") return null;
+
+  // Check if it's an admin page
+  const isAdminPage = pathname.startsWith("/admin");
 
   // Split paths into segments and remove empty strings
   const segments = pathname.split("/").filter((segment) => segment !== "");
 
   return (
-    <div className="bg-white border-b border-slate-200 px-6 py-3 w-full sticky top-[64px] md:top-[73px] z-30">
+    <div className={`bg-white border-b border-slate-200 px-6 py-3 w-full sticky top-[64px] md:top-[73px] z-30 ${isAdminPage ? "md:pl-[17rem]" : ""}`}>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

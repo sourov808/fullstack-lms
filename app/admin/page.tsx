@@ -15,15 +15,15 @@ async function DashboardContent() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Dashboard Overview</h1>
-        <p className="text-slate-500 mt-2">Welcome to your instructor dashboard. Manage courses, students, and settings here.</p>
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Dashboard Overview</h1>
+        <p className="text-slate-500 dark:text-slate-400 mt-2">Welcome to your instructor dashboard. Manage courses, students, and settings here.</p>
       </div>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {dataCards.map((metric) => (
-          <div key={metric.label} className="p-6 bg-white rounded-xl border border-slate-200 shadow-sm flex flex-col items-start justify-between">
-            <h3 className="text-sm font-medium text-slate-500">{metric.label}</h3>
-            <p className="text-2xl font-bold text-slate-900 mt-2">
+          <div key={metric.label} className="p-6 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col items-start justify-between">
+            <h3 className="text-sm font-medium text-slate-500 dark:text-slate-400">{metric.label}</h3>
+            <p className="text-2xl font-bold text-slate-900 dark:text-white mt-2">
               {metric.value}
             </p>
           </div>
