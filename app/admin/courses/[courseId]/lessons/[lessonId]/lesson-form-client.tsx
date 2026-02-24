@@ -80,15 +80,15 @@ export function LessonFormClient({
           <Button
             onClick={() => router.push(`/admin/courses/${courseId}`)}
             variant="ghost"
-            className="mb-4 pl-0 text-slate-500 hover:text-slate-800 hover:bg-transparent"
+            className="mb-4 pl-0 text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-transparent"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Back to course setup
           </Button>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             Edit Lesson
           </h1>
-          <p className="text-slate-500 mt-2">
+          <p className="text-slate-500 dark:text-slate-400 mt-2">
             Complete all required fields and upload your video.
           </p>
         </div>
@@ -115,7 +115,7 @@ export function LessonFormClient({
         </div>
       </div>
 
-      <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
+      <div className="bg-white dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-blue-900/50 shadow-sm space-y-6">
         <Form {...form}>
           {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
           <form onSubmit={form.handleSubmit(onSubmit as any)} className="space-y-6 mt-4">
@@ -165,7 +165,7 @@ export function LessonFormClient({
               control={form.control as any}
               name="is_free"
               render={({ field }) => (
-                <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                <FormItem className="flex flex-row items-center justify-between rounded-lg border border-slate-200 dark:border-blue-900/50 p-4">
                   <div className="space-y-0.5">
                     <FormLabel className="text-base cursor-pointer">
                       Free Preview
@@ -212,7 +212,7 @@ export function LessonFormClient({
               )}
             />
 
-            <div className="flex items-center gap-x-2 pt-4 border-t border-slate-100 mt-6">
+            <div className="flex items-center gap-x-2 pt-4 border-t border-slate-100 dark:border-blue-900/50 mt-6">
               <Button type="submit" disabled={!isValid || isSubmitting}>
                 Save Lesson
               </Button>

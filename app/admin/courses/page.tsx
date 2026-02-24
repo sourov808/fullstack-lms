@@ -50,8 +50,8 @@ export default async function AdminCoursesPage() {
       </div>
 
       {(!courses || courses.length === 0) ? (
-        <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-800 rounded-xl border border-dashed border-slate-300 dark:border-slate-600">
-          <div className="w-16 h-16 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mb-4">
+        <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-950 rounded-xl border border-dashed border-slate-300 dark:border-blue-900/50">
+          <div className="w-16 h-16 bg-slate-100 dark:bg-slate-900 rounded-full flex items-center justify-center mb-4">
             <span className="material-symbols-outlined text-3xl text-slate-400">
               video_library
             </span>
@@ -61,14 +61,14 @@ export default async function AdminCoursesPage() {
             Get started by creating your first course. Upload videos, add materials,
             and publish to students.
           </p>
-          <Button className="mt-6 border-slate-200 dark:border-slate-600" variant="outline" asChild>
+          <Button className="mt-6 border-slate-200 dark:border-blue-900/50" variant="outline" asChild>
             <Link href="/admin/courses/new">Create Course</Link>
           </Button>
         </div>
       ) : (
-        <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm overflow-hidden">
+        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-blue-900/50 shadow-sm overflow-hidden">
           <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300">
-            <thead className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 uppercase text-xs font-semibold">
+            <thead className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-blue-900/50 text-slate-500 dark:text-slate-400 uppercase text-xs font-semibold">
               <tr>
                 <th className="px-6 py-4">Title</th>
                 <th className="px-6 py-4">Price</th>
@@ -76,9 +76,9 @@ export default async function AdminCoursesPage() {
                 <th className="px-6 py-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
+            <tbody className="divide-y divide-slate-100 dark:divide-blue-900/20">
               {courses.map((course) => (
-                <tr key={course.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-700/50 transition">
+                <tr key={course.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition">
                   <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">
                     {course.title}
                   </td>
@@ -89,11 +89,11 @@ export default async function AdminCoursesPage() {
                   </td>
                   <td className="px-6 py-4">
                     {course.is_published ? (
-                      <Badge className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/30 cursor-default shadow-none border-green-200 dark:border-green-800 font-medium tracking-wide">
+                      <Badge className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/30 cursor-default shadow-none border-green-200 dark:border-green-800/50 font-medium tracking-wide">
                         Published
                       </Badge>
                     ) : (
-                      <Badge variant="outline" className="bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 shadow-none font-medium tracking-wide cursor-default border-slate-200 dark:border-slate-600">
+                      <Badge variant="outline" className="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 shadow-none font-medium tracking-wide cursor-default border-slate-200 dark:border-blue-900/50">
                         Draft
                       </Badge>
                     )}

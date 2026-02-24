@@ -51,14 +51,6 @@ export function ReviewsSection({ courseId, hasPurchased, userId }: ReviewsSectio
     loadReviews();
   }, [courseId, hasPurchased]);
 
-  const handleRefresh = () => {
-    getCourseReviews(courseId).then(setReviews);
-    getCourseRating(courseId).then(setRating);
-    if (hasPurchased) {
-      getUserReview(courseId).then(setUserReview);
-    }
-  };
-
   const ratingBreakdown = [5, 4, 3, 2, 1].map((star) => {
     const count = reviews.filter((r) => r.rating === star).length;
     const percentage = reviews.length > 0 ? (count / reviews.length) * 100 : 0;
@@ -105,7 +97,7 @@ export function ReviewsSection({ courseId, hasPurchased, userId }: ReviewsSectio
           </Button>
         )}
         {userReview && (
-          <Button onClick={() => setIsModalOpen(true)} variant="outline" className="font-bold border-slate-200 dark:border-slate-700">
+          <Button onClick={() => setIsModalOpen(true)} variant="outline" className="font-bold border-slate-200 dark:border-blue-900/50 dark:bg-slate-950 dark:text-slate-200 dark:hover:bg-slate-900/50">
             <Pencil className="w-4 h-4 mr-2" />
             Edit Your Review
           </Button>
@@ -115,7 +107,7 @@ export function ReviewsSection({ courseId, hasPurchased, userId }: ReviewsSectio
       {/* Rating Summary */}
       <div className="grid md:grid-cols-3 gap-6">
         {/* Overall Rating */}
-        <div className="md:col-span-1 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-6 space-y-4">
+        <div className="md:col-span-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-blue-900/50 rounded-xl p-6 space-y-4">
           <div className="text-center">
             <div className="text-5xl font-black text-slate-900 dark:text-white mb-2">
               {rating.average.toFixed(1)}
@@ -127,11 +119,11 @@ export function ReviewsSection({ courseId, hasPurchased, userId }: ReviewsSectio
           </div>
 
           {/* Rating Breakdown */}
-          <div className="space-y-2 pt-4 border-t border-slate-100 dark:border-slate-700">
+          <div className="space-y-2 pt-4 border-t border-slate-100 dark:border-blue-900/20">
             {ratingBreakdown.map(({ star, count, percentage }) => (
               <div key={star} className="flex items-center gap-2 text-sm">
                 <span className="text-slate-600 dark:text-slate-300 w-8">{star} ★</span>
-                <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-amber-400 rounded-full transition-all duration-300"
                     style={{ width: `${percentage}%` }}

@@ -21,12 +21,14 @@ export function DynamicBreadcrumbs() {
 
   // Check if it's an admin page
   const isAdminPage = pathname.startsWith("/admin");
+  
+  if (isAdminPage) return null;
 
   // Split paths into segments and remove empty strings
   const segments = pathname.split("/").filter((segment) => segment !== "");
 
   return (
-    <div className={`bg-white border-b border-slate-200 px-6 py-3 w-full sticky top-[64px] md:top-[73px] z-30 ${isAdminPage ? "md:pl-[17rem]" : ""}`}>
+    <div className={`bg-white dark:bg-slate-950/80 dark:backdrop-blur-md border-b border-slate-200 dark:border-blue-900/50 px-6 py-3 w-full sticky top-[64px] md:top-[73px] z-30 ${isAdminPage ? "md:pl-68" : ""}`}>
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

@@ -6,14 +6,14 @@ export default function AdminSettingsPage() {
   return (
     <div className="max-w-3xl space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">Platform Settings</h1>
-        <p className="text-slate-500 mt-2">Manage global settings for your learning platform.</p>
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Platform Settings</h1>
+        <p className="text-slate-500 dark:text-slate-400 mt-2">Manage global settings for your learning platform.</p>
       </div>
 
-      <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-8">
+      <div className="bg-white dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-blue-900/50 shadow-sm space-y-8">
         {/* General Settings */}
         <div>
-          <h2 className="text-lg font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">General</h2>
+          <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4 border-b border-slate-100 dark:border-blue-900/50 pb-2">General</h2>
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="siteName">Site Name</Label>
@@ -28,7 +28,7 @@ export default function AdminSettingsPage() {
 
         {/* Branding Settings */}
         <div>
-           <h2 className="text-lg font-bold text-slate-900 mb-4 border-b border-slate-100 pb-2">Branding</h2>
+           <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 mb-4 border-b border-slate-100 dark:border-blue-900/50 pb-2">Branding</h2>
            <div className="space-y-4">
               <div className="flex items-center gap-4">
                 <div className="w-16 h-16 rounded-lg bg-primary text-white flex items-center justify-center">
@@ -37,16 +37,16 @@ export default function AdminSettingsPage() {
                 <div className="space-y-2">
                   <Label>Brand Logo</Label>
                   <div className="flex items-center gap-2">
-                    <Button variant="outline" className="border-slate-200 text-slate-600">Upload Logo</Button>
-                    <p className="text-xs text-slate-500">Recommended size: 200x200px</p>
+                    <Button variant="outline" className="border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 dark:hover:bg-slate-900/50">Upload Logo</Button>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">Recommended size: 200x200px</p>
                   </div>
                 </div>
               </div>
            </div>
         </div>
 
-        <div className="pt-4 flex items-center justify-end gap-3 border-t border-slate-100">
-          <Button variant="outline" className="border-slate-200">Discard Changes</Button>
+        <div className="pt-4 flex items-center justify-end gap-3 border-t border-slate-100 dark:border-blue-900/50">
+          <Button variant="outline" className="border-slate-200 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-900/50">Discard Changes</Button>
           <Button className="bg-primary text-white">Save Settings</Button>
         </div>
       </div>

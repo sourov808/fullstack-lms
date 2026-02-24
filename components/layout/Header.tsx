@@ -21,14 +21,14 @@ export default async function Header() {
   const isAdmin = user?.user_metadata?.role === "admin";
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-slate-100 px-6 py-3 flex items-center justify-between gap-8 h-[73px]">
+    <header className="sticky top-0 z-50 bg-white dark:bg-slate-950/80 dark:backdrop-blur-md border-b border-slate-100 dark:border-blue-900/50 px-6 py-3 flex items-center justify-between gap-8 h-[73px]">
       <div className="flex items-center gap-8 flex-1">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <div className="bg-primary text-white p-1.5 rounded-lg flex items-center justify-center">
             <span className="material-symbols-outlined text-2xl">school</span>
           </div>
-          <h1 className="text-xl font-extrabold tracking-tight text-slate-900 uppercase hidden sm:block">
+          <h1 className="text-xl font-extrabold tracking-tight text-slate-900 dark:text-white uppercase hidden sm:block">
             EduStream
           </h1>
         </Link>
@@ -41,17 +41,17 @@ export default async function Header() {
 
       {/* Navigation Links & CTAs */}
       <nav className="flex items-center gap-6">
-        <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600">
-          <Link href="/courses" className="hover:text-primary transition-colors">
+        <div className="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-600 dark:text-slate-300">
+          <Link href="/courses" className="hover:text-primary dark:hover:text-blue-400 transition-colors">
             All Courses
           </Link>
           {!isAdmin && user && (
-            <Link href="/dashboard" className="hover:text-primary transition-colors">
+            <Link href="/dashboard" className="hover:text-primary dark:hover:text-blue-400 transition-colors">
               My Learning
             </Link>
           )}
           {isAdmin && (
-            <Link href="/admin" className="hover:text-primary transition-colors">
+            <Link href="/admin" className="hover:text-primary dark:hover:text-blue-400 transition-colors">
               Instructor Dashboard
             </Link>
           )}

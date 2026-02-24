@@ -35,8 +35,8 @@ export default async function AdminSidebar() {
       </nav>
 
       {/* User Profile */}
-      <div className="mt-auto pt-6 border-t border-slate-100 dark:border-slate-700 px-2 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-700 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-600">
+      <div className="mt-auto pt-6 border-t border-slate-100 dark:border-blue-900/50 px-2 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-blue-900/50">
           {user?.user_metadata?.first_name?.[0] || "A"}
         </div>
         <div className="flex-1 min-w-0">

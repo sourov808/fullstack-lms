@@ -41,7 +41,7 @@ export function CourseCard({
   };
 
   return (
-    <div className={`bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 group flex flex-col h-full hover:shadow-xl hover:shadow-slate-200 dark:hover:shadow-slate-900/50 transition-all ${
+    <div className={`bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-blue-500/20 group flex flex-col h-full hover:shadow-xl hover:shadow-slate-200 dark:hover:shadow-blue-500/10 dark:hover:border-blue-500/50 transition-all ${
       !isPublished ? "opacity-90 grayscale-[0.3] pointer-events-none" : ""
     }`}>
       <Link href={isPublished ? `/courses/${id}` : "#"} className="flex flex-col h-full">
@@ -75,7 +75,7 @@ export function CourseCard({
           )}
         </div>
         <div className="p-4 flex flex-col flex-1 relative">
-          <div className="font-bold text-slate-900 dark:text-white leading-tight mb-1 group-hover:text-primary transition-colors line-clamp-2">
+          <div className="font-bold text-slate-900 dark:text-white leading-tight mb-1 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors line-clamp-2">
             {title}
           </div>
           <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">{instructor}</p>

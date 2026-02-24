@@ -13,7 +13,9 @@ export const VideoPlayer = ({ url }: VideoPlayerProps) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setIsMounted(true);
+    // Only set mounted after first hydration frame has painted
+    const timeout = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timeout);
   }, []);
 
   if (!isMounted) {

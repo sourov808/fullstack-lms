@@ -79,12 +79,12 @@ export default async function LessonIdPage({
       )}
 
       {/* Lesson Header with Mark Complete */}
-      <div className="bg-white border border-slate-100 p-6 rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
+      <div className="bg-white dark:bg-slate-950 border border-slate-100 dark:border-blue-900/50 p-6 rounded-xl shadow-sm flex flex-col sm:flex-row sm:items-center gap-4 justify-between">
         <div>
-          <div className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-1">
+          <div className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-widest mb-1">
             Lesson {(currentIndex ?? 0) + 1} of {allLessons?.length ?? 1}
           </div>
-          <h2 className="text-2xl font-bold text-slate-900">{lesson.title}</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{lesson.title}</h2>
         </div>
         <MarkCompleteButton
           lessonId={lesson.id}
@@ -96,17 +96,17 @@ export default async function LessonIdPage({
 
       {/* Lesson Content */}
       {lesson.content && (
-        <div className="bg-white border border-slate-100 p-6 rounded-xl shadow-sm text-slate-700 prose max-w-none">
+        <div className="bg-white dark:bg-slate-950 border border-slate-100 dark:border-blue-900/50 p-6 rounded-xl shadow-sm text-slate-700 dark:text-slate-300 prose dark:prose-invert max-w-none">
           {lesson.content}
         </div>
       )}
 
       {/* Next Lesson Navigation */}
       {nextLesson && (
-        <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl flex items-center justify-between">
+        <div className="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-blue-900/50 p-4 rounded-xl flex items-center justify-between">
           <div>
-            <div className="text-xs text-slate-400 font-medium uppercase tracking-wide">Up Next</div>
-            <div className="font-semibold text-slate-700 text-sm mt-0.5">{nextLesson.title}</div>
+            <div className="text-xs text-slate-400 dark:text-slate-500 font-medium uppercase tracking-wide">Up Next</div>
+            <div className="font-semibold text-slate-700 dark:text-slate-200 text-sm mt-0.5">{nextLesson.title}</div>
           </div>
           <a
             href={`/courses/${resolvedParams.courseId}/chapters/${nextLesson.id}`}

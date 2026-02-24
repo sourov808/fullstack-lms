@@ -89,7 +89,7 @@ export default async function CourseDetailsPage({
       )}
 
       {/* Course Header */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-white dark:bg-slate-950 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-blue-900/50">
         <div className="flex flex-col justify-center space-y-4">
           <h1 className="text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
             {course.title}
@@ -122,7 +122,7 @@ export default async function CourseDetailsPage({
           </div>
         </div>
 
-        <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-700 border border-slate-200 dark:border-slate-600">
+        <div className="relative aspect-video rounded-xl overflow-hidden bg-slate-100 dark:bg-slate-900/50 border border-slate-200 dark:border-blue-500/20">
           {course.thumbnail_url ? (
             <Image
               src={course.thumbnail_url}
@@ -139,7 +139,7 @@ export default async function CourseDetailsPage({
       </div>
 
       {/* Course Details / Content */}
-      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+      <div className="bg-white dark:bg-slate-950 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-blue-900/50">
         <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">About This Course</h2>
         <div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-300">
           {course.description || "No detailed description available."}
@@ -147,7 +147,7 @@ export default async function CourseDetailsPage({
       </div>
 
       {/* Reviews Section */}
-      <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700">
+      <div className="bg-white dark:bg-slate-950 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-blue-900/50">
         <ReviewsSection
           courseId={course.id}
           hasPurchased={hasPurchased}

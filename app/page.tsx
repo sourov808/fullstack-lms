@@ -38,17 +38,17 @@ export default async function Home() {
   return (
     <div className="flex-1">
       {/* Hero Section */}
-      <section className="relative bg-slate-50 py-16 md:py-24 px-6 overflow-hidden">
+      <section className="relative bg-slate-50 dark:bg-slate-950 py-16 md:py-24 px-6 overflow-hidden">
         {/* Decorative Accent */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50 text-blue-500/5 rounded-l-full -mr-20 transform -skew-x-12"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-50 dark:bg-blue-900/10 text-blue-500/5 rounded-l-full -mr-20 transform -skew-x-12"></div>
         
         <div className="max-w-6xl mx-auto relative z-10 grid md:grid-cols-2 items-center gap-12">
           <div className="space-y-6">
-            <span className="inline-block px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold uppercase tracking-widest rounded">Learning Reimagined</span>
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 leading-[1.1]">
-              Unlock Your Potential with <span className="text-primary">Expert-Led</span> Courses
+            <span className="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 border border-transparent dark:border-blue-500/30 text-xs font-bold uppercase tracking-widest rounded">Learning Reimagined</span>
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white leading-[1.1]">
+              Unlock Your Potential with <span className="text-primary dark:text-blue-400">Expert-Led</span> Courses
             </h2>
-            <p className="text-lg text-slate-600 max-w-lg leading-relaxed">
+            <p className="text-lg text-slate-600 dark:text-slate-400 max-w-lg leading-relaxed">
               Join over 50 million learners and master new skills from the world&apos;s best instructors in business, design, and tech.
             </p>
             
@@ -61,16 +61,16 @@ export default async function Home() {
               />
             </div>
             
-            <div className="flex items-center gap-4 text-xs font-medium text-slate-500">
+            <div className="flex items-center gap-4 text-xs font-medium text-slate-500 dark:text-slate-400">
               <span>Popular:</span>
-              <a className="px-2 py-1 bg-slate-200 rounded hover:bg-slate-300 transition-all" href="#">Python</a>
-              <a className="px-2 py-1 bg-slate-200 rounded hover:bg-slate-300 transition-all" href="#">React</a>
-              <a className="px-2 py-1 bg-slate-200 rounded hover:bg-slate-300 transition-all" href="#">UX Design</a>
+              <a className="px-2 py-1 bg-slate-200 dark:bg-slate-800/50 rounded hover:bg-slate-300 dark:hover:bg-slate-800 border border-transparent dark:border-blue-500/20 dark:hover:border-blue-500/50 transition-all text-slate-700 dark:text-slate-300" href="#">Python</a>
+              <a className="px-2 py-1 bg-slate-200 dark:bg-slate-800/50 rounded hover:bg-slate-300 dark:hover:bg-slate-800 border border-transparent dark:border-blue-500/20 dark:hover:border-blue-500/50 transition-all text-slate-700 dark:text-slate-300" href="#">React</a>
+              <a className="px-2 py-1 bg-slate-200 dark:bg-slate-800/50 rounded hover:bg-slate-300 dark:hover:bg-slate-800 border border-transparent dark:border-blue-500/20 dark:hover:border-blue-500/50 transition-all text-slate-700 dark:text-slate-300" href="#">UX Design</a>
             </div>
           </div>
           
           <div className="hidden md:block">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white h-[400px]">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-8 border-white dark:border-blue-500/20 h-[400px]">
               <Image
                 alt="Students studying together"
                 className="w-full h-full object-cover"
@@ -78,20 +78,20 @@ export default async function Home() {
                 width={500}
                 height={500}
               />
-              <div className="absolute inset-0 bg-linear-to-tr from-blue-500/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-tr from-blue-500/20 dark:from-blue-600/30 to-transparent"></div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Category Section */}
-      <section className="py-16 px-6 max-w-7xl mx-auto">
+      <section className="py-16 px-6 max-w-7xl mx-auto dark:bg-slate-950">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <h3 className="text-2xl font-bold text-slate-900">Explore Top Categories</h3>
-            <p className="text-slate-500 mt-1">Get started by browsing our most popular topics.</p>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Explore Top Categories</h3>
+            <p className="text-slate-500 dark:text-slate-400 mt-1">Get started by browsing our most popular topics.</p>
           </div>
-          <a className="text-primary font-bold text-sm flex items-center gap-1 hover:underline cursor-pointer">
+          <a className="text-primary dark:text-blue-400 font-bold text-sm flex items-center gap-1 hover:underline cursor-pointer">
             View all <span className="material-symbols-outlined text-sm">arrow_forward</span>
           </a>
         </div>
@@ -103,16 +103,16 @@ export default async function Home() {
       </section>
 
       {/* Top Rated Courses Section */}
-      <section className="py-16 px-6 bg-slate-50">
+      <section className="py-16 px-6 bg-slate-50 dark:bg-slate-950/50 border-y border-transparent dark:border-blue-500/10">
         <div className="max-w-7xl mx-auto">
           <div className="flex items-center justify-between mb-10">
-            <h3 className="text-2xl font-bold text-slate-900">Top Rated Courses</h3>
+            <h3 className="text-2xl font-bold text-slate-900 dark:text-white">Top Rated Courses</h3>
             <div className="flex gap-2">
-              <Button variant="outline" size="icon" className="bg-white hover:bg-slate-50">
-                <span className="material-symbols-outlined text-slate-600">chevron_left</span>
+              <Button variant="outline" size="icon" className="bg-white dark:bg-slate-900 border-slate-200 dark:border-blue-500/20 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                <span className="material-symbols-outlined">chevron_left</span>
               </Button>
-              <Button variant="outline" size="icon" className="bg-white hover:bg-slate-50">
-                <span className="material-symbols-outlined text-slate-600">chevron_right</span>
+              <Button variant="outline" size="icon" className="bg-white dark:bg-slate-900 border-slate-200 dark:border-blue-500/20 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
+                <span className="material-symbols-outlined">chevron_right</span>
               </Button>
             </div>
           </div>
@@ -126,13 +126,13 @@ export default async function Home() {
 
       {/* CTA Section */}
       <section className="py-20 px-6 max-w-7xl mx-auto">
-        <div className="bg-blue-600 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 text-white overflow-hidden relative">
+        <div className="bg-blue-600 dark:bg-blue-900/40 rounded-3xl p-8 md:p-16 flex flex-col md:flex-row items-center justify-between gap-12 text-white border border-transparent dark:border-blue-500/30 overflow-hidden relative">
           <div className="relative z-10 max-w-xl">
-            <h3 className="text-3xl md:text-4xl font-black mb-6">Become an Instructor</h3>
-            <p className="text-lg text-white/80 mb-8 leading-relaxed">
+            <h3 className="text-3xl md:text-4xl font-black mb-6 dark:text-blue-50">Become an Instructor</h3>
+            <p className="text-lg text-white/80 dark:text-blue-100/80 mb-8 leading-relaxed">
               Top instructors from around the world teach millions of students on EduStream. We provide the tools and platform to teach what you love.
             </p>
-            <Button className="px-8 py-6 bg-white text-blue-600 font-bold rounded-xl hover:bg-slate-100 transition-all shadow-lg text-lg h-auto">
+            <Button className="px-8 py-6 bg-white dark:bg-blue-500 text-blue-600 dark:text-white font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-blue-600 transition-all shadow-lg text-lg h-auto">
               Start Teaching Today
             </Button>
           </div>
