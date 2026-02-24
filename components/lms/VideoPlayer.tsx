@@ -13,12 +13,14 @@ export const VideoPlayer = ({ url }: VideoPlayerProps) => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    setIsMounted(true);
+    // Only set mounted after first hydration frame has painted
+    const timeout = setTimeout(() => setIsMounted(true), 0);
+    return () => clearTimeout(timeout);
   }, []);
 
   if (!isMounted) {
     return (
-      <div className="flex items-center justify-center aspect-video w-full bg-slate-800 rounded-md">
+      <div className="flex items-center justify-center aspect-video w-full bg-slate-800 dark:bg-slate-900 rounded-md">
         <Loader2 className="h-8 w-8 animate-spin text-slate-400" />
       </div>
     );
@@ -26,7 +28,7 @@ export const VideoPlayer = ({ url }: VideoPlayerProps) => {
 
   if (error) {
     return (
-      <div className="flex flex-col items-center justify-center aspect-video w-full bg-slate-800 rounded-md text-slate-200 p-4">
+      <div className="flex flex-col items-center justify-center aspect-video w-full bg-slate-800 dark:bg-slate-900 rounded-md text-slate-200 p-4">
         <p className="text-sm text-center">Failed to load video</p>
         <a
           href={url}
@@ -41,9 +43,9 @@ export const VideoPlayer = ({ url }: VideoPlayerProps) => {
   }
 
   return (
-    <div className="relative aspect-video w-full rounded-md overflow-hidden bg-black mb-6 shadow-sm">
+    <div className="relative aspect-video w-full rounded-md overflow-hidden bg-black border border-slate-200 dark:border-slate-700 mb-6 shadow-sm">
       {isLoading && (
-        <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
+        <div className="absolute inset-0 flex items-center justify-center bg-slate-800 dark:bg-slate-900">
           <Loader2 className="h-8 w-8 animate-spin text-slate-400" />
         </div>
       )}

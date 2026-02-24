@@ -32,10 +32,10 @@ export default async function AdminCoursesPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             All Courses
           </h1>
-          <p className="text-slate-500 mt-2">
+          <p className="text-slate-500 dark:text-slate-400 mt-2">
             Manage your published and draft courses.
           </p>
         </div>
@@ -50,25 +50,25 @@ export default async function AdminCoursesPage() {
       </div>
 
       {(!courses || courses.length === 0) ? (
-        <div className="flex flex-col items-center justify-center p-12 bg-white rounded-xl border border-dashed border-slate-300">
-          <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mb-4">
+        <div className="flex flex-col items-center justify-center p-12 bg-white dark:bg-slate-950 rounded-xl border border-dashed border-slate-300 dark:border-blue-900/50">
+          <div className="w-16 h-16 bg-slate-100 dark:bg-slate-900 rounded-full flex items-center justify-center mb-4">
             <span className="material-symbols-outlined text-3xl text-slate-400">
               video_library
             </span>
           </div>
-          <h3 className="text-lg font-bold text-slate-900">No courses yet</h3>
-          <p className="text-slate-500 mt-1 max-w-sm text-center">
+          <h3 className="text-lg font-bold text-slate-900 dark:text-white">No courses yet</h3>
+          <p className="text-slate-500 dark:text-slate-400 mt-1 max-w-sm text-center">
             Get started by creating your first course. Upload videos, add materials,
             and publish to students.
           </p>
-          <Button className="mt-6 border-slate-200" variant="outline" asChild>
+          <Button className="mt-6 border-slate-200 dark:border-blue-900/50" variant="outline" asChild>
             <Link href="/admin/courses/new">Create Course</Link>
           </Button>
         </div>
       ) : (
-        <div className="bg-white rounded-xl border border-slate-200 shadow-sm overflow-hidden">
-          <table className="w-full text-left text-sm text-slate-600">
-            <thead className="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-xs font-semibold">
+        <div className="bg-white dark:bg-slate-950 rounded-xl border border-slate-200 dark:border-blue-900/50 shadow-sm overflow-hidden">
+          <table className="w-full text-left text-sm text-slate-600 dark:text-slate-300">
+            <thead className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-blue-900/50 text-slate-500 dark:text-slate-400 uppercase text-xs font-semibold">
               <tr>
                 <th className="px-6 py-4">Title</th>
                 <th className="px-6 py-4">Price</th>
@@ -76,10 +76,10 @@ export default async function AdminCoursesPage() {
                 <th className="px-6 py-4 text-right">Actions</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100">
+            <tbody className="divide-y divide-slate-100 dark:divide-blue-900/20">
               {courses.map((course) => (
-                <tr key={course.id} className="hover:bg-slate-50/50 transition">
-                  <td className="px-6 py-4 font-medium text-slate-900">
+                <tr key={course.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-900/50 transition">
+                  <td className="px-6 py-4 font-medium text-slate-900 dark:text-white">
                     {course.title}
                   </td>
                   <td className="px-6 py-4">
@@ -89,11 +89,11 @@ export default async function AdminCoursesPage() {
                   </td>
                   <td className="px-6 py-4">
                     {course.is_published ? (
-                      <Badge className="bg-green-100 text-green-700 hover:bg-green-100 cursor-default shadow-none border-green-200 font-medium tracking-wide">
+                      <Badge className="bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/30 cursor-default shadow-none border-green-200 dark:border-green-800/50 font-medium tracking-wide">
                         Published
                       </Badge>
                     ) : (
-                      <Badge variant="outline" className="bg-slate-100 text-slate-600 shadow-none font-medium tracking-wide cursor-default border-slate-200">
+                      <Badge variant="outline" className="bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 shadow-none font-medium tracking-wide cursor-default border-slate-200 dark:border-blue-900/50">
                         Draft
                       </Badge>
                     )}
@@ -102,7 +102,7 @@ export default async function AdminCoursesPage() {
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-slate-500 hover:text-primary"
+                      className="text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-primary"
                       asChild
                     >
                       <Link href={`/admin/courses/${course.id}`}>

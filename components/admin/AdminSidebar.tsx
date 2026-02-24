@@ -17,7 +17,7 @@ export default async function AdminSidebar() {
       {/* Logo */}
       <div className="mb-8 px-2 flex items-center gap-2 text-primary">
         <span className="material-symbols-outlined text-2xl">admin_panel_settings</span>
-        <h2 className="text-xl font-bold tracking-tight">Admin Portal</h2>
+        <h2 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Admin Portal</h2>
       </div>
 
       {/* Navigation */}
@@ -26,7 +26,7 @@ export default async function AdminSidebar() {
           <Link
             key={item.href}
             href={item.href}
-            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:text-primary hover:bg-primary/5 font-medium transition-colors"
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 dark:text-slate-300 hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 font-medium transition-colors"
           >
             <span className="material-symbols-outlined text-[20px]">{item.icon}</span>
             {item.name}
@@ -35,15 +35,15 @@ export default async function AdminSidebar() {
       </nav>
 
       {/* User Profile */}
-      <div className="mt-auto pt-6 border-t border-slate-100 px-2 flex items-center gap-3">
-        <div className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center font-bold text-slate-600 border border-slate-200">
+      <div className="mt-auto pt-6 border-t border-slate-100 dark:border-blue-900/50 px-2 flex items-center gap-3">
+        <div className="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-900 flex items-center justify-center font-bold text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-blue-900/50">
           {user?.user_metadata?.first_name?.[0] || "A"}
         </div>
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-bold text-slate-900 truncate">
+          <p className="text-sm font-bold text-slate-900 dark:text-white truncate">
             {user?.user_metadata?.first_name} {user?.user_metadata?.last_name}
           </p>
-          <p className="text-xs text-slate-500 truncate capitalize">
+          <p className="text-xs text-slate-500 dark:text-slate-400 truncate capitalize">
             {user?.user_metadata?.role || "Admin"}
           </p>
         </div>

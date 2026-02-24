@@ -111,6 +111,20 @@ export const PURCHASES_CONFIG = {
 };
 
 // ============================================================================
+// Reviews Configuration
+// Used in: app/actions/reviews.ts, components/lms/ReviewsSection.tsx
+// ============================================================================
+export const REVIEWS_CONFIG = {
+  tableName: "reviews",
+  requiredFields: ["user_id", "course_id", "rating"],
+  maxCommentLength: 1000,
+  minRating: 1,
+  maxRating: 5,
+  // Only users who purchased the course (or instructor) can review
+  requirePurchase: true,
+};
+
+// ============================================================================
 // Admin Navigation
 // Used in: components/admin/AdminSidebar.tsx
 // ============================================================================

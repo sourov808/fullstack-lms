@@ -65,3 +65,27 @@ export async function getDashboardMetrics() {
     avgRating,
   };
 }
+
+export async function getRecentSales() {
+  const supabase = await createClient();
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  if (!user) {
+    throw new Error("Unauthorized");
+  }
+
+  // Call the custom RPC function that securely joins with auth.users
+  const { data, error } = await supabase.rpc("get_instructor_recent_sales", {
+    org_instructor_id: user.id,
+  });
+
+  if (error) {
+    console.error("Failed to fetch recent sales:", JSON.stringify(error, null, 2));
+    return [];
+  }
+
+  return data || [];
+}

@@ -73,15 +73,15 @@ export default function CreateCoursePage() {
   return (
     <div className="max-w-3xl space-y-6">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
           Create New Course
         </h1>
-        <p className="text-slate-500 mt-2">
+        <p className="text-slate-500 dark:text-slate-400 mt-2">
           Provide the basic details for your new course.
         </p>
       </div>
 
-      <div className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm space-y-6">
+      <div className="bg-white dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-blue-900/50 shadow-sm space-y-6">
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -179,7 +179,7 @@ export default function CreateCoursePage() {
                 control={form.control as any}
                 name="is_published"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-center justify-between rounded-lg border p-4">
+                  <FormItem className="flex flex-row items-center justify-between rounded-lg border border-slate-200 dark:border-blue-900/50 p-4">
                     <div className="space-y-0.5">
                       <FormLabel className="text-base cursor-pointer">
                         Published
@@ -226,7 +226,7 @@ export default function CreateCoursePage() {
               )}
             />
 
-            <div className="flex items-center gap-x-2 pt-4 border-t border-slate-100 mt-6">
+            <div className="flex items-center gap-x-2 pt-4 border-t border-slate-100 dark:border-blue-900/50 mt-6">
               <Button
                 type="button"
                 variant="outline"

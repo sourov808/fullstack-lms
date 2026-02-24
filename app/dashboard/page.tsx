@@ -18,7 +18,7 @@ export default async function DashboardPage() {
     .select(`course:course_id(id, title, price, thumbnail_url, category)`)
     .eq("user_id", user.id);
 
-  const courses = (purchases || []).map((p: any) => {
+  const courses = (purchases || []).map((p: { course: unknown }) => {
     const c = Array.isArray(p.course) ? p.course[0] : p.course;
     return { id: c?.id, title: c?.title, thumbnail: c?.thumbnail_url || "", category: c?.category };
   }).filter(Boolean);

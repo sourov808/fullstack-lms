@@ -62,10 +62,10 @@ export default function CourseSetupClient({ course, lessons: initialLessons }: {
     <div className="max-w-4xl space-y-8">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
             Course Setup: {course.title}
           </h1>
-          <p className="text-slate-500 mt-2">
+          <p className="text-slate-500 dark:text-slate-400 mt-2">
             Manage your course curriculum and lessons here.
           </p>
         </div>
@@ -106,13 +106,13 @@ export default function CourseSetupClient({ course, lessons: initialLessons }: {
         </div>
       </div>
 
-      <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
+      <div className="bg-white dark:bg-slate-950 p-6 rounded-xl border border-slate-200 dark:border-blue-900/50 shadow-sm">
         <div className="flex items-center justify-between font-medium">
-          <h2 className="text-xl font-semibold mb-4">Course Pricing</h2>
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-slate-100">Course Pricing</h2>
         </div>
         <div className="flex items-center gap-4 mt-2">
           <div className="flex-1 max-w-xs">
-            <p className="text-sm text-slate-500 mb-2">
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-2">
               Set the price to $0 to make this course free for all students.
             </p>
             <div className="flex gap-2">
@@ -133,6 +133,7 @@ export default function CourseSetupClient({ course, lessons: initialLessons }: {
               </Button>
               <Button
                 variant={course.price > 0 ? "default" : "outline"}
+                className={course.price > 0 ? "" : "border-slate-200 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-900/50"}
                 onClick={async () => {
                   const newPrice = prompt("Enter the new price for this course in USD:", "19.99");
                   if (newPrice && !isNaN(parseFloat(newPrice)) && parseFloat(newPrice) > 0) {
@@ -151,67 +152,17 @@ export default function CourseSetupClient({ course, lessons: initialLessons }: {
               </Button>
             </div>
           </div>
-          <div className="ml-auto text-2xl font-black text-slate-900">
-            {course.price === 0 ? <span className="text-green-600">Free</span> : `$${course.price.toFixed(2)}`}
+          <div className="ml-auto text-2xl font-black text-slate-900 dark:text-white">
+            {course.price === 0 ? <span className="text-green-600 dark:text-green-500">Free</span> : `$${course.price.toFixed(2)}`}
           </div>
         </div>
       </div>
 
-      <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-        <div className="flex items-center justify-between font-medium">
-          <h2 className="text-xl font-semibold mb-4">Course Pricing</h2>
-        </div>
-        <div className="flex items-center gap-4 mt-2">
-          <div className="flex-1 max-w-xs">
-            <p className="text-sm text-slate-500 mb-2">
-              Set the price to $0 to make this course free for all students.
-            </p>
-            <div className="flex gap-2">
-              <Button
-                variant={course.price === 0 ? "default" : "outline"}
-                onClick={async () => {
-                  try {
-                    const toastId = toast.loading("Updating price...");
-                    await updateCoursePrice(course.id, 0);
-                    toast.success("Course is now Free!", { id: toastId });
-                    router.refresh();
-                  } catch {
-                    toast.error("Failed to update price");
-                  }
-                }}
-              >
-                Make Free
-              </Button>
-              <Button
-                variant={course.price > 0 ? "default" : "outline"}
-                onClick={async () => {
-                  const newPrice = prompt("Enter the new price for this course in USD:", "19.99");
-                  if (newPrice && !isNaN(parseFloat(newPrice)) && parseFloat(newPrice) > 0) {
-                    try {
-                      const toastId = toast.loading("Updating price...");
-                      await updateCoursePrice(course.id, parseFloat(newPrice));
-                      toast.success(`Price set to $${newPrice}`, { id: toastId });
-                      router.refresh();
-                    } catch {
-                      toast.error("Failed to update price");
-                    }
-                  }
-                }}
-              >
-                Set Price (Paid)
-              </Button>
-            </div>
-          </div>
-          <div className="ml-auto text-2xl font-black text-slate-900">
-            {course.price === 0 ? <span className="text-green-600">Free</span> : `$${course.price.toFixed(2)}`}
-          </div>
-        </div>
-      </div>
 
       <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
         <div className="flex items-center justify-between font-medium">
-          <h2 className="text-xl font-semibold mb-4">Course Curriculum</h2>
-          <Button onClick={onCreateLesson} variant="outline" size="sm" disabled={isCreating}>
+          <h2 className="text-xl font-semibold mb-4 text-slate-900 dark:text-slate-100">Course Curriculum</h2>
+          <Button onClick={onCreateLesson} variant="outline" size="sm" disabled={isCreating} className="dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-900/50">
             {isCreating ? (
               <Loader2 className="h-4 w-4 mr-2 animate-spin" />
             ) : (
@@ -228,7 +179,7 @@ export default function CourseSetupClient({ course, lessons: initialLessons }: {
             }`}
           >
             {lessons.length === 0 ? (
-              <p className="text-slate-500 italic text-sm text-center py-6">
+              <p className="text-slate-500 dark:text-slate-400 italic text-sm text-center py-6">
                 No lessons added yet.
               </p>
             ) : (

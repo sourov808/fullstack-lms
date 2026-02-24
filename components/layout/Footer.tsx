@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-white pt-16 pb-8 px-6">
+    <footer className="bg-slate-900 dark:bg-slate-950 border-t border-transparent dark:border-blue-900/20 text-white pt-16 pb-8 px-6">
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-12 mb-16">
         <div className="col-span-2">
           <Link href="/" className="flex items-center gap-2 mb-6">
@@ -78,7 +78,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+      <div className="max-w-7xl mx-auto pt-8 border-t border-slate-800 dark:border-blue-900/20 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-slate-500 text-xs">© 2024 EduStream, Inc. All rights reserved.</p>
         <div className="flex items-center gap-6">
           <span className="material-symbols-outlined text-slate-500 cursor-pointer hover:text-white transition-colors">social_leaderboard</span>

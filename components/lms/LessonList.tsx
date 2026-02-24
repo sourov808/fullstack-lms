@@ -80,13 +80,13 @@ export const LessonList = ({
               >
                 {(provided) => (
                   <div
-                    className={`flex items-center gap-x-2 bg-slate-100 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm`}
+                    className={`flex items-center gap-x-2 bg-slate-100 dark:bg-slate-900 border-slate-200 dark:border-blue-900/50 border text-slate-700 dark:text-slate-300 rounded-md mb-4 text-sm`}
                     ref={provided.innerRef}
                     {...provided.draggableProps}
                   >
                     <div
-                      className={`px-3 py-3 border-r border-r-slate-200 hover:bg-slate-200 rounded-l-md transition ${
-                        lesson.is_free ? "bg-slate-100" : ""
+                      className={`px-3 py-3 border-r border-r-slate-200 dark:border-r-blue-900/50 hover:bg-slate-200 dark:hover:bg-slate-800 rounded-l-md transition ${
+                        lesson.is_free ? "bg-slate-100 dark:bg-slate-900" : ""
                       }`}
                       {...provided.dragHandleProps}
                     >
@@ -95,20 +95,20 @@ export const LessonList = ({
                     {lesson.title}
                     <div className="ml-auto pr-3 flex items-center gap-x-2">
                       {lesson.is_free && (
-                        <Badge className="bg-green-600/10 text-green-700 hover:bg-green-600/20 text-xs shadow-none cursor-default">
+                        <Badge className="bg-green-600/10 dark:bg-green-900/30 text-green-700 dark:text-green-400 hover:bg-green-600/20 dark:hover:bg-green-900/30 text-xs shadow-none cursor-default">
                           Free Preview
                         </Badge>
                       )}
                       
                       {lesson.video_url && (
-                        <Badge variant="outline" className="gap-1 bg-blue-50/50 text-blue-700 border-blue-200 shadow-none">
+                        <Badge variant="outline" className="gap-1 bg-blue-50/50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400 border-blue-200 dark:border-blue-800 shadow-none">
                           <Video className="w-3 h-3" />
                           Video
                         </Badge>
                       )}
 
                       {!lesson.video_url && lesson.content && (
-                        <Badge variant="outline" className="gap-1 bg-amber-50/50 text-amber-700 border-amber-200 shadow-none">
+                        <Badge variant="outline" className="gap-1 bg-amber-50/50 dark:bg-amber-900/20 text-amber-700 dark:text-amber-400 border-amber-200 dark:border-amber-800 shadow-none">
                           <FileText className="w-3 h-3" />
                           Text
                         </Badge>
@@ -116,7 +116,7 @@ export const LessonList = ({
 
                       <Pencil
                         onClick={() => onEdit(lesson.id)}
-                        className="w-4 h-4 cursor-pointer hover:opacity-75 transition text-slate-500 ml-2"
+                        className="w-4 h-4 cursor-pointer hover:opacity-75 transition text-slate-500 dark:text-slate-400 ml-2"
                       />
                     </div>
                   </div>

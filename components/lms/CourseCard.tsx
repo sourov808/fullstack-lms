@@ -41,7 +41,7 @@ export function CourseCard({
   };
 
   return (
-    <div className={`bg-white rounded-xl overflow-hidden border border-slate-200 group flex flex-col h-full hover:shadow-xl hover:shadow-slate-200 transition-all ${
+    <div className={`bg-white dark:bg-slate-900 rounded-xl overflow-hidden border border-slate-200 dark:border-blue-500/20 group flex flex-col h-full hover:shadow-xl hover:shadow-slate-200 dark:hover:shadow-blue-500/10 dark:hover:border-blue-500/50 transition-all ${
       !isPublished ? "opacity-90 grayscale-[0.3] pointer-events-none" : ""
     }`}>
       <Link href={isPublished ? `/courses/${id}` : "#"} className="flex flex-col h-full">
@@ -51,7 +51,7 @@ export function CourseCard({
             alt={title}
             width={500}
             height={500}
-            priority
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
           {!isPublished && (
@@ -75,13 +75,13 @@ export function CourseCard({
           )}
         </div>
         <div className="p-4 flex flex-col flex-1 relative">
-          <div className="font-bold text-slate-900 leading-tight mb-1 group-hover:text-primary transition-colors line-clamp-2">
+          <div className="font-bold text-slate-900 dark:text-white leading-tight mb-1 group-hover:text-primary dark:group-hover:text-blue-400 transition-colors line-clamp-2">
             {title}
           </div>
-          <p className="text-xs text-slate-500 mb-2">{instructor}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">{instructor}</p>
 
           <div className="flex items-center gap-1.5 mb-auto">
-            <span className="text-sm font-bold text-amber-600">{rating}</span>
+            <span className="text-sm font-bold text-amber-600 dark:text-amber-500">{rating}</span>
             <div className="flex text-amber-500">
               <span className="material-symbols-outlined text-[16px]">star</span>
               <span className="material-symbols-outlined text-[16px]">star</span>
@@ -89,28 +89,28 @@ export function CourseCard({
               <span className="material-symbols-outlined text-[16px]">star</span>
               <span className="material-symbols-outlined text-[16px]">{rating >= 4.8 ? "star" : "star_half"}</span>
             </div>
-            <span className="text-xs text-slate-400">({reviews.toLocaleString()})</span>
+            <span className="text-xs text-slate-400 dark:text-slate-500">({reviews.toLocaleString()})</span>
           </div>
 
           <div className="mt-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
                {price === 0 ? (
-                <span className="text-lg font-black text-green-600">Free</span>
+                <span className="text-lg font-black text-green-600 dark:text-green-500">Free</span>
                ) : (
-                  <span className="text-lg font-black text-slate-900">${price}</span>
+                  <span className="text-lg font-black text-slate-900 dark:text-white">${price}</span>
                )}
               {originalPrice && price > 0 && (
-                <span className="text-sm text-slate-400 line-through">${originalPrice}</span>
+                <span className="text-sm text-slate-400 dark:text-slate-500 line-through">${originalPrice}</span>
               )}
             </div>
             {isPublished && (
-              <button 
+              <button
                 onClick={handleAddToCart}
                 disabled={isInCart(id)}
                 className={`p-2 rounded-full transition-all ${
-                  isInCart(id) 
-                    ? "text-green-600 bg-green-50" 
-                    : "text-primary hover:bg-primary/5"
+                  isInCart(id)
+                    ? "text-green-600 dark:text-green-500 bg-green-50 dark:bg-green-900/20"
+                    : "text-primary hover:bg-primary/5 dark:hover:bg-primary/10"
                 }`}
               >
                 <span className="material-symbols-outlined">
